@@ -1,5 +1,5 @@
 import React, {ReactComponentElement} from 'react';
-import {Navbar} from "../../organisms/Navbar";
+import {Navbar} from '../../organisms/Navbar';
 import styles from './style.module.scss';
 
 interface BaseTemplateProps {
@@ -14,5 +14,5 @@ export const BaseTemplate = ({router}: BaseTemplateProps) => {
         {router}
       </div>
     </div>
-  )
+  );
 };

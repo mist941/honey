@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
-const router =  [
+const router = [
   {
     path: '/',
     component: (
       <div>
         Home
       </div>
-    )
+    ),
   },
   {
     path: '/shop',
@@ -15,7 +15,7 @@ const router =  [
       <div>
         Shop
       </div>
-    )
+    ),
   },
   {
     path: '/basket',
@@ -23,8 +23,8 @@ const router =  [
       <div>
         Basket
       </div>
-    )
-  }
+    ),
+  },
 ];
 
 export default router;

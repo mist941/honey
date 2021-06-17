@@ -1,6 +1,6 @@
 import React from 'react';
-import {BaseTemplate} from "./components/templates/BaseTemplate";
-import {Route, Switch} from "react-router-dom";
+import {BaseTemplate} from './components/templates/BaseTemplate';
+import {Route, Switch} from 'react-router-dom';
 import router from './router';
 
 export default function App() {
