@@ -11,14 +11,14 @@ Use the package manager [yarn](https://classic.yarnpkg.com/en/) for install depe
 yarn install
 ```
 
-## Running project
+## Run project
 
 ```
 yarn dev
 ```
 
 
-## Building project
+## Build project
 
 ```
 yarn build
