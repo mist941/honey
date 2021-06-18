@@ -5,7 +5,7 @@ const router = [
     path: '/',
     component: (
       <div>
-        Home
+        Home Page
       </div>
     ),
   },
@@ -13,7 +13,7 @@ const router = [
     path: '/shop',
     component: (
       <div>
-        Shop
+        Shop Page
       </div>
     ),
   },
@@ -21,7 +21,7 @@ const router = [
     path: '/basket',
     component: (
       <div>
-        Basket
+        Basket Page
       </div>
     ),
   },

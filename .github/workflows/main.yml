@@ -1,29 +1,42 @@
-name: Firebase CI/CD
+name: Github CI/CD
+
 on:
   push:
     branches: [ master ]
+    
+  workflow_dispatch:
+
 jobs:
-  main:
+  build:
+    name: Build
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 14.x ]
     steps:
-      - name: git clone
-        uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - name: Checkout repository
+        uses: actions/checkout@main
+      - name: Install dependencies
+        run: npm i
+      - name: Build dependencies
+        run: npm run build
+      - name: Archive production artifact
+        uses: actions/upload-artifact@main
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm install and build
-        env:
-          CI: ""
-        run: |
-          npm i
-          npm run build
+          name: dist
+          path: dist
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@main
+      - name: Download artifact
+        uses: actions/download-artifact@main
+        with:
+          name: dist
+          path: dist
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
-        env:
+        env: 
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
