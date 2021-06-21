@@ -1,7 +1,7 @@
 import React, {ReactComponentElement} from 'react';
 import {Hexagon} from '../../atoms/Hexagon';
 import {TitlePage} from '../../atoms/TitlePage';
-import { HexagonGroup } from '../../molecules/HexagonGroup';
+import {HexagonGroup} from '../../molecules/HexagonGroup';
 import {Navbar} from '../../organisms/Navbar';
 import {AuthTemplate} from '../../templates/AuthTemplate';
 import styles from './style.module.scss';
