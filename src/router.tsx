@@ -1,4 +1,5 @@
 import React from 'react';
+import {AuthPage} from './components/pages/Auth';
 
 const router = [
   {
@@ -24,6 +25,10 @@ const router = [
         Basket Page
       </div>
     ),
+  },
+  {
+    path: '/auth',
+    component: <AuthPage/>,
   },
 ];
 

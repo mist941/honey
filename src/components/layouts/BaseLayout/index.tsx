@@ -6,7 +6,7 @@ interface BaseTemplateProps {
   router: ReactComponentElement<any>;
 }
 
-export const BaseTemplate = ({router}: BaseTemplateProps) => {
+export const BaseLayout = ({router}: BaseTemplateProps) => {
   return (
     <div className={styles['template-wrapper']}>
       <Navbar/>
