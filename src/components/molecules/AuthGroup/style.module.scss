@@ -1,0 +1,86 @@
+.container_form {
+  display: flex;
+  justify-content: center;
+  max-width: 470px;
+  margin: 0 auto;
+}
+
+.form-box {
+  width: 100%;
+  height: 600px;
+  background-color: #1F1D2B;;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 5%;
+}
+
+.header-form {
+  margin-bottom: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0 35px;
+
+  .input {
+    margin-bottom: 20px;
+    border: 1px solid #393C49;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: #2D303E;
+    height: 40px;
+    padding: 14px;
+    font-size: 14px;
+    line-height: 140%;
+    color: #E0E6E9;
+    font-family: 'Barlow', sans-serif;
+    outline: none;
+  }
+
+  .btn-submit {
+    padding: 14px;
+    width: 100%;
+    background: #EA7C69;
+    font-family: 'Barlow', sans-serif;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+    margin-top: 25px;
+
+    &:hover {
+      transition: .2s ease-in-out;
+      box-shadow: 0 8px 24px rgba(234, 124, 105, 0.4);
+    }
+  }
+}
+
+.social-ways {
+  display: flex;
+  max-width: 200px;
+  justify-content: space-between;
+  margin: 60px auto 0;
+
+  .social-method-btn {
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+    background: none;
+    border: none;
+    color: #EA7C69;
+    transition: .2s ease-in-out;
+
+    &:hover {
+      transition: .2s ease-in-out;
+      color: #fff;
+    }
+  }
+}
