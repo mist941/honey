@@ -7,7 +7,7 @@ import { User } from '../types/User';
 
 const authService = new AuthService();
 
-const loginAction = async (params: AuthParams, provider?: AuthProviders) => {
+const loginAction = async (params: AuthParams, provider: AuthProviders) => {
   try {
     return await authService
       .loginStrategy(provider)

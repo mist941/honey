@@ -3,12 +3,11 @@ import {EmailAuth, FacebookAuth, GoogleAuth} from "./auth.strategy";
 
 export class AuthService {
 
-  loginStrategy(provider?: AuthProviders | string) {
+  loginStrategy(provider: AuthProviders) {
     switch (provider) {
       case AuthProviders.FACEBOOK: return new FacebookAuth();
       case AuthProviders.GOOGLE: return new GoogleAuth();
-      case AuthProviders.EMAIL:
-      default: return new EmailAuth();
+      case AuthProviders.EMAIL: return new EmailAuth();
     }
   }
 }
