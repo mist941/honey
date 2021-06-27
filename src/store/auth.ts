@@ -27,7 +27,7 @@ const logout = async () => {
   }
 };
 
-export const counterSlice = createSlice({
+export const authSlice = createSlice({
   name: 'auth',
   initialState: {
     currentuser: null,
@@ -44,3 +44,5 @@ export const counterSlice = createSlice({
     },
   },
 });
+
+export default authSlice.reducer;
