@@ -21,10 +21,10 @@ export const LoginForm = ({}: LoginFormProps) => {
           </form>
           <div className={styles['social-ways']}>
             <button className={styles['social-method-btn']}>
-              <AiFillGoogleCircle size={60}/>
+              <AiFillGoogleCircle size={50}/>
             </button>
             <button className={styles['social-method-btn']}>
-              <AiFillFacebook size={60}/>
+              <AiFillFacebook size={50}/>
             </button>
           </div>
         </div>
