@@ -1,13 +1,15 @@
 import {createSlice} from '@reduxjs/toolkit';
 import * as firebase from 'firebase';
-import {AuthService} from "../services/auth/auth.service";
-import {AuthParams} from "../services/auth/auth.strategy";
+import {AuthProviders} from '../services/auth/auth.providers';
+import {AuthService} from '../services/auth/auth.service';
+import {AuthParams} from '../services/auth/auth.strategy';
+import { User } from '../types/User';
 
 const authService = new AuthService();
 
-const login = async (params: AuthParams, provider?: string) => {
+const loginAction = async (params: AuthParams, provider?: AuthProviders) => {
   try {
-    await authService
+    return await authService
       .loginStrategy(provider)
       .login(params);
   } catch (err) {
@@ -15,16 +17,15 @@ const login = async (params: AuthParams, provider?: string) => {
   }
 };
 
-const register = async (email: string, password: string) => {
+const registerAction = async (email: string, password: string) => {
   try {
-    await firebase.default.auth().createUserWithEmailAndPassword(email, password)
-      .then(user => console.log(user));
+    return await firebase.default.auth().createUserWithEmailAndPassword(email, password);
   } catch (err) {
     alert(err);
   }
 };
 
-const logout = async () => {
+const logoutAction = async () => {
   try {
     await firebase.default.auth().signOut();
   } catch (err) {
@@ -32,22 +33,34 @@ const logout = async () => {
   }
 };
 
+interface State {
+  currentUser: User | null;
+}
+
 export const authSlice = createSlice({
   name: 'auth',
-  initialState: {
-    currentuser: null,
+  initialState:<State> {
+    currentUser: null
   },
   reducers: {
     signup: (state, action) => {
-
+      const {email, password} = action.payload;
+      registerAction(email, password).then(data => {
+        console.log(data);
+      });
     },
     login: (state, action) => {
+      const {params, provider} = action.payload;
+      loginAction(params, provider).then(data => {
 
+      });
     },
     lgout: (state) => {
 
     },
   },
 });
+
+export const {signup, login, lgout} = authSlice.actions;
 
 export default authSlice.reducer;
