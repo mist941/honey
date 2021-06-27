@@ -3,11 +3,11 @@ import * as firebase from 'firebase';
 import {AuthProviders} from '../services/auth/auth.providers';
 import {AuthService} from '../services/auth/auth.service';
 import {AuthParams} from '../services/auth/auth.strategy';
-import {User} from '../types/User';
+import { User } from '../types/User';
 
 const authService = new AuthService();
 
-const loginAction = async (params: AuthParams, provider: AuthProviders) => {
+const loginAction = async (params: AuthParams, provider?: AuthProviders) => {
   try {
     return await authService
       .loginStrategy(provider)
@@ -39,31 +39,21 @@ interface State {
 
 export const authSlice = createSlice({
   name: 'auth',
-  initialState: <State>{
-    currentUser: null,
+  initialState:<State> {
+    currentUser: null
   },
   reducers: {
     signup: (state, action) => {
       const {email, password} = action.payload;
-      let user = null;
       registerAction(email, password).then(data => {
-        user = {
-          id: data?.user?.uid,
-          email: data?.user?.email ?? '',
-        };
+        console.log(data);
       });
-      state.currentUser = user;
     },
     login: (state, action) => {
-      const {email, password, provider} = action.payload;
-      let user = null;
-      loginAction({email, password}, provider).then(data => {
-        user = {
-          id: data.user.uid,
-          email: data.user.email,
-        };
+      const {params, provider} = action.payload;
+      loginAction(params, provider).then(data => {
+
       });
-      state.currentUser = user;
     },
     lgout: (state) => {
 

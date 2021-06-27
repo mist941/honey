@@ -2,22 +2,20 @@ import React, {ReactComponentElement, useState} from 'react';
 import {AiFillFacebook, AiFillGoogleCircle} from 'react-icons/ai';
 import {BiUserCircle} from 'react-icons/bi';
 import {useDispatch} from 'react-redux';
-import {login} from '../../../../store/auth';
+import {signup} from '../../../../store/auth';
 import styles from '../style.module.scss';
 
 interface LoginFormProps {
   changePage: () => void;
 }
 
-export const LoginForm = ({changePage}: LoginFormProps) => {
+export const LoginForm = ({}: LoginFormProps) => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-
   const submit = () => {
-    dispatch(login({email, password, provider: 'email'}));
+    dispatch(signup({email, password}));
   };
-
   return (
     <div className={styles['container_form']}>
       <div className={styles['form-box']}>
@@ -40,9 +38,6 @@ export const LoginForm = ({changePage}: LoginFormProps) => {
             />
             <button className={styles['btn-submit']} onClick={() => submit()}>LOGIN</button>
           </div>
-          <button className={styles['change-page']} onClick={changePage}>
-            Register
-          </button>
           <div className={styles['social-ways']}>
             <button className={styles['social-method-btn']}>
               <AiFillGoogleCircle size={50}/>
