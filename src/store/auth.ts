@@ -1,10 +1,15 @@
 import {createSlice} from '@reduxjs/toolkit';
 import * as firebase from 'firebase';
+import {AuthService} from "../services/auth/auth.service";
+import {AuthParams} from "../services/auth/auth.strategy";
 
-const login = async (email: string, password: string) => {
+const authService = new AuthService();
+
+const login = async (params: AuthParams, provider?: string) => {
   try {
-    await firebase.default.auth().signInWithEmailAndPassword(email, password)
-      .then(user => console.log(user));
+    await authService
+      .loginStrategy(provider)
+      .login(params);
   } catch (err) {
     alert(err);
   }
