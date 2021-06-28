@@ -3,7 +3,7 @@ import * as firebase from 'firebase';
 import {AuthProviders} from '../services/auth/auth.providers';
 import {AuthService} from '../services/auth/auth.service';
 import {AuthParams} from '../services/auth/auth.strategy';
-import { User } from '../types/User';
+import {User} from '../types/User';
 
 const authService = new AuthService();
 
@@ -39,21 +39,31 @@ interface State {
 
 export const authSlice = createSlice({
   name: 'auth',
-  initialState:<State> {
-    currentUser: null
+  initialState: <State>{
+    currentUser: null,
   },
   reducers: {
     signup: (state, action) => {
       const {email, password} = action.payload;
+      let user = null;
       registerAction(email, password).then(data => {
-        console.log(data);
+        user = {
+          id: data?.user?.uid,
+          email: data?.user?.email ?? '',
+        };
       });
+      state.currentUser = user;
     },
     login: (state, action) => {
-      const {params, provider} = action.payload;
-      loginAction(params, provider).then(data => {
-
+      const {email, password, provider} = action.payload;
+      let user = null;
+      loginAction({email, password}, provider).then(data => {
+        user = {
+          id: data.user.uid,
+          email: data.user.email,
+        };
       });
+      state.currentUser = user;
     },
     lgout: (state) => {
 
