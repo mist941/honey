@@ -1,8 +1,8 @@
 export interface User {
   id: any;
-  name?: string;
   email: string;
   registeredType?: RegisteredTypes;
+  isAdmin?: boolean;
 }
 
 export enum RegisteredTypes {
