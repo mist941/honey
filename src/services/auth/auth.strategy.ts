@@ -10,7 +10,7 @@ export interface AuthStrategy {
 }
 
 export class FacebookAuth implements AuthStrategy {
-  login(params: AuthParams): Promise<any> {
+  login(): Promise<any> {
     const provider = new firebase.auth.FacebookAuthProvider();
     provider.addScope('user_birthday');
     return firebase
@@ -21,7 +21,7 @@ export class FacebookAuth implements AuthStrategy {
 }
 
 export class GoogleAuth implements AuthStrategy {
-  login(params: AuthParams): Promise<any> {
+  login(): Promise<any> {
     const provider = new firebase.auth.GoogleAuthProvider();
     return firebase
       .auth()

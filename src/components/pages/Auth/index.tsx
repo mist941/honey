@@ -1,18 +1,26 @@
-import React, {ReactComponentElement} from 'react';
-import { LoginForm } from '../../molecules/AuthGroup';
+import React, {ReactComponentElement, useState} from 'react';
+import {AuthForms} from '../../../types/Auth';
+import {LoginForm} from '../../molecules/AuthGroup';
+import {RegisterForm} from '../../molecules/AuthGroup';
 import {HexagonGroup} from '../../molecules/HexagonGroup';
 import {AuthTemplate} from '../../templates/AuthTemplate';
 import styles from './style.module.scss';
 
-interface AuthPageProps {
-}
+export const AuthPage = () => {
+  const [currentForm, setCurrentForm] = useState<AuthForms>(AuthForms.login);
 
-export const AuthPage = ({}: AuthPageProps) => {
+  const renderActualForm = () => {
+    if (currentForm === AuthForms.login) {
+      return <LoginForm changePage={() => setCurrentForm(AuthForms.register)}/>;
+    }
+
+    return <RegisterForm changePage={() => setCurrentForm(AuthForms.login)}/>;
+  };
+
   return (
     <AuthTemplate>
       <div className={styles['auth-page-wrapper']}>
-        {/*<HexagonGroup/>*/}
-        <LoginForm/>
+        {renderActualForm()}
       </div>
     </AuthTemplate>
   );
