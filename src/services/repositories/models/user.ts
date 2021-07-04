@@ -1,17 +1,21 @@
-import firebase from 'firebase';
-import AuthProvider = firebase.auth.AuthProvider;
 import {Statuses} from "../../status.service";
 import {BaseModel} from "./base-model";
 
 export interface User extends BaseModel {
   name: string;
   lastname: string;
-  provider: AuthProvider;
+  provider: RegisteredTypes;
   uid: string;
   orders: Order[];
   addresses: Address[];
   createDate: Date;
   updateDate: Date;
+}
+
+export enum RegisteredTypes {
+  default = 'default',
+  google = 'google',
+  facebook = 'facebook',
 }
 
 export interface Address extends BaseModel {

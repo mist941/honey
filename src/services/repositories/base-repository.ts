@@ -1,3 +1,5 @@
+// @ts-ignore
+import { FieldPath, QuerySnapshot, WhereFilterOp }  from "firebase/app";
 import firebase from "firebase/app";
 import {BaseModel} from "./models/base-model";
 
@@ -29,9 +31,17 @@ export abstract class FirestoreBaseRepository {
       .add(entity)
   }
 
-  get(id: string) {
+  get(id: string): Promise<QuerySnapshot<BaseModel>>{
     return this
       .getCollection()
+      .doc(id)
+      .get()
+  }
+
+  getWhere(field: string | FieldPath, condition: WhereFilterOp, value: any): Promise<QuerySnapshot<BaseModel>> {
+    return this
+      .getCollection()
+      .where(field, condition, value)
       .get()
   }
 
@@ -44,7 +54,15 @@ export abstract class FirestoreBaseRepository {
   update(id: string, params: any) {
     return this
       .getCollection()
-      .get()
+      .doc(id)
+      .update(params)
+  }
+
+  upsert(entity: BaseModel) {
+    if (entity.id) {
+      return this.update(entity.id, entity);
+    }
+    return this.create(entity);
   }
 
 }
