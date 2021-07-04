@@ -4,6 +4,7 @@ import {BaseModel} from "./base-model";
 export interface User extends BaseModel {
   name: string;
   lastname: string;
+  email: string;
   provider: RegisteredTypes;
   uid: string;
   orders: Order[];
