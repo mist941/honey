@@ -1,15 +1,12 @@
-import React, {PropsWithChildren, ReactComponentElement} from 'react';
-import {Navbar} from '../../organisms/Navbar';
+import React, {PropsWithChildren} from 'react';
 import styles from './style.module.scss';
 
 interface AuthTemplateProps {
-  title?: ReactComponentElement<any>;
 }
 
-export const AuthTemplate = ({children, title}: PropsWithChildren<AuthTemplateProps>) => {
+export const AuthTemplate = ({children}: PropsWithChildren<AuthTemplateProps>) => {
   return (
     <div className={styles['template-auth-wrapper']}>
-      {title}
       {children}
     </div>
   );

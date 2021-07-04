@@ -3,7 +3,7 @@ import * as firebase from 'firebase';
 import {AuthProviders} from '../services/auth/auth.providers';
 import {AuthService} from '../services/auth/auth.service';
 import {AuthParams} from '../services/auth/auth.strategy';
-import {User} from '../types/User';
+import {User} from '../services/repositories/models/user';
 
 const authService = new AuthService();
 
@@ -65,12 +65,12 @@ export const authSlice = createSlice({
       });
       state.currentUser = user;
     },
-    lgout: (state) => {
+    logout: (state) => {
 
     },
   },
 });
 
-export const {signup, login, lgout} = authSlice.actions;
+export const {signup, login, logout} = authSlice.actions;
 
 export default authSlice.reducer;
