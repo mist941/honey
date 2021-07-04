@@ -5,6 +5,7 @@ import {BiBasket} from 'react-icons/bi';
 import {FiLogOut} from 'react-icons/fi';
 import {CustomLink} from '../../atoms/CustomLink';
 import {UrlHelper} from '../../../utils/UrlHelper';
+import {RiAdminFill} from 'react-icons/all';
 
 export const Navbar = () => {
   const [activeRout, setActiveRoute] = useState<string>(UrlHelper.getCurrentRout);
@@ -12,7 +13,7 @@ export const Navbar = () => {
   return (
     <div className={styles['navbar-wrapper']}>
         <span className={styles['link-wrapper']} onClick={() => setActiveRoute('')}>
-          <CustomLink preset="gradient" to="/">
+          <CustomLink isOriginalLink={true} preset="gradient" to="https://honey-landing-84128.web.app/">
             <AiOutlineHome/>
           </CustomLink>
         </span>
@@ -25,12 +26,20 @@ export const Navbar = () => {
             <AiOutlineShop/>
           </CustomLink>
         </span>
-        <span className={styles['link-wrapper']} onClick={() => setActiveRoute('basket')}>
+        <span className={styles['link-wrapper']} onClick={() => setActiveRoute('cart')}>
           <CustomLink
             preset="nav"
-            to="/basket"
-            isActive={activeRout === 'basket'}>
+            to="/cart"
+            isActive={activeRout === 'cart'}>
             <BiBasket/>
+          </CustomLink>
+        </span>
+        <span className={styles['link-wrapper']} onClick={() => setActiveRoute('admin')}>
+          <CustomLink
+            preset="nav"
+            to="/admin"
+            isActive={activeRout === 'admin'}>
+            <RiAdminFill/>
           </CustomLink>
         </span>
       </nav>

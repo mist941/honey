@@ -1,4 +1,4 @@
-import React, {ReactComponentElement, useState} from 'react';
+import React, { useState} from 'react';
 import {AiFillFacebook, AiFillGoogleCircle} from 'react-icons/ai';
 import {BiUserCircle} from 'react-icons/bi';
 import {useDispatch} from 'react-redux';
@@ -38,10 +38,10 @@ export const LoginForm = ({changePage}: LoginFormProps) => {
               placeholder="Password"
               onChange={event => setPassword(event.currentTarget.value)}
             />
-            <button className={styles['btn-submit']} onClick={() => submit()}>LOGIN</button>
+            <button className={styles['btn-submit']} onClick={() => submit()}>Войти</button>
           </div>
           <button className={styles['change-page']} onClick={changePage}>
-            Register
+            Зарегестрироваться
           </button>
           <div className={styles['social-ways']}>
             <button className={styles['social-method-btn']}>

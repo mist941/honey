@@ -1,34 +1,43 @@
 import React from 'react';
 import {AuthPage} from './components/pages/Auth';
+import {AdminPage} from './components/pages/Admin';
+import {CartPage} from './components/pages/Cart';
+import {ShopPage} from './components/pages/Shop';
 
 const router = [
   {
-    path: '/',
-    component: (
-      <div>
-        Home Page
-      </div>
-    ),
-  },
-  {
     path: '/shop',
-    component: (
-      <div>
-        Shop Page
-      </div>
-    ),
+    component: <ShopPage/>,
   },
   {
-    path: '/basket',
-    component: (
-      <div>
-        Basket Page
-      </div>
-    ),
+    path: '/cart',
+    component: <CartPage/>,
   },
   {
     path: '/auth',
     component: <AuthPage/>,
+  },
+  {
+    path: '/admin',
+    component: <AdminPage/>,
+    sub: [
+      {
+        path: '/admin/products',
+        component: (
+          <div>
+            Products
+          </div>
+        ),
+      },
+      {
+        path: '/admin/orders',
+        component: (
+          <div>
+            Orders
+          </div>
+        ),
+      },
+    ],
   },
 ];
 
