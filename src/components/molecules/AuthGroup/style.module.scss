@@ -3,6 +3,8 @@
   justify-content: center;
   max-width: 470px;
   margin: 0 auto;
+  opacity: 1;
+  animation: pre-animation 1.5s linear;
 }
 
 .form-box {
@@ -55,11 +57,29 @@
     transition: .2s ease-in-out;
     cursor: pointer;
     margin-top: 25px;
+    margin-bottom: 15px;
 
     &:hover {
       transition: .2s ease-in-out;
       box-shadow: 0 8px 24px rgba(234, 124, 105, 0.4);
     }
+  }
+}
+
+.change-page {
+  display: block;
+  margin: 0 auto;
+  background: none;
+  color: #EA7C69;
+  font-family: 'Barlow', sans-serif;
+  font-style: italic;
+  border: none;
+  cursor: pointer;
+  transition: .2s ease-in-out;
+
+  &:hover {
+    transition: .2s ease-in-out;
+    color: #fff;
   }
 }
 
@@ -82,5 +102,14 @@
       transition: .2s ease-in-out;
       color: #fff;
     }
+  }
+}
+
+@keyframes pre-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
