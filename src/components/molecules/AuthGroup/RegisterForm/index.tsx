@@ -43,14 +43,14 @@ export const RegisterForm = ({changePage}: RegisterFormProps) => {
           <button className={styles['change-page']} onClick={changePage}>
             Войти
           </button>
-          <div className={styles['social-ways']}>
-            <button className={styles['social-method-btn']}>
-              <AiFillGoogleCircle size={50}/>
-            </button>
-            <button className={styles['social-method-btn']}>
-              <AiFillFacebook size={50}/>
-            </button>
-          </div>
+          {/*<div className={styles['social-ways']}>*/}
+          {/*  <button className={styles['social-method-btn']}>*/}
+          {/*    <AiFillGoogleCircle size={50}/>*/}
+          {/*  </button>*/}
+          {/*  <button className={styles['social-method-btn']}>*/}
+          {/*    <AiFillFacebook size={50}/>*/}
+          {/*  </button>*/}
+          {/*</div>*/}
         </div>
       </div>
     </div>
