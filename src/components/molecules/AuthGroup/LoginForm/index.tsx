@@ -1,9 +1,11 @@
-import React, { useState} from 'react';
-import {AiFillFacebook, AiFillGoogleCircle} from 'react-icons/ai';
+import React, {useState} from 'react';
 import {BiUserCircle} from 'react-icons/bi';
 import {useDispatch} from 'react-redux';
-import {login} from '../../../../store/auth';
 import styles from '../style.module.scss';
+import {AsyncService} from "../../../../store/asyncActions/inedx";
+import {ActionsGroup} from "../../../../store/asyncActions/types";
+import {AuthProviders} from "../../../../services/auth/auth.providers";
+import {Link} from 'react-router-dom';
 
 interface LoginFormProps {
   changePage: () => void;
@@ -11,11 +13,11 @@ interface LoginFormProps {
 
 export const LoginForm = ({changePage}: LoginFormProps) => {
   const dispatch = useDispatch();
+  const service = new AsyncService(dispatch).asyncActionStrategy(ActionsGroup.auth);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-
   const submit = () => {
-    dispatch(login({email, password, provider: 'email'}));
+    service.loginAction({email, password}, AuthProviders.EMAIL)
   };
 
   return (
@@ -43,14 +45,15 @@ export const LoginForm = ({changePage}: LoginFormProps) => {
           <button className={styles['change-page']} onClick={changePage}>
             Зарегестрироваться
           </button>
-          <div className={styles['social-ways']}>
-            <button className={styles['social-method-btn']}>
-              <AiFillGoogleCircle size={50}/>
-            </button>
-            <button className={styles['social-method-btn']}>
-              <AiFillFacebook size={50}/>
-            </button>
-          </div>
+          <Link className={styles['redirect']} to="/shop">Начать покупки</Link>
+          {/*<div className={styles['social-ways']}>*/}
+          {/*  <button className={styles['social-method-btn']}>*/}
+          {/*    <AiFillGoogleCircle size={50}/>*/}
+          {/*  </button>*/}
+          {/*  <button className={styles['social-method-btn']}>*/}
+          {/*    <AiFillFacebook size={50}/>*/}
+          {/*  </button>*/}
+          {/*</div>*/}
         </div>
       </div>
     </div>
