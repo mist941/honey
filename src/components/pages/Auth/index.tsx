@@ -1,8 +1,7 @@
-import React, {ReactComponentElement, useState} from 'react';
+import React, { useState} from 'react';
 import {AuthForms} from '../../../types/Auth';
 import {LoginForm} from '../../molecules/AuthGroup';
 import {RegisterForm} from '../../molecules/AuthGroup';
-import {HexagonGroup} from '../../molecules/HexagonGroup';
 import {AuthTemplate} from '../../templates/AuthTemplate';
 import styles from './style.module.scss';
 

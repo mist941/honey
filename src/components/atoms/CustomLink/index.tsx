@@ -12,14 +12,17 @@ interface CustomLinkProps extends DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnc
   to: string;
   preset: Presets;
   isActive?: boolean;
+  isOriginalLink?: boolean;
 }
 
-export const CustomLink = ({children, to, preset, isActive}: CustomLinkProps) => {
+export const CustomLink = ({children, to, preset, isActive, isOriginalLink = false}: CustomLinkProps) => {
   const finalClassName = classNames(
     styles['link'],
     styles[`link_${preset}`],
     styles[`link_${isActive && 'active'}`],
   );
+
+  if (isOriginalLink) return <a className={finalClassName} href={to}>{children}</a>;
 
   return <Link className={finalClassName} to={to}>{children}</Link>;
 };
