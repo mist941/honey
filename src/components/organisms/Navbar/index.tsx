@@ -37,7 +37,7 @@ export const Navbar = () => {
         <span className={styles['link-wrapper']} onClick={() => setActiveRoute('admin')}>
           <CustomLink
             preset="nav"
-            to="/admin"
+            to="/admin/products"
             isActive={activeRout === 'admin'}>
             <RiAdminFill/>
           </CustomLink>

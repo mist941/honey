@@ -3,6 +3,7 @@ import {AuthPage} from './components/pages/Auth';
 import {AdminPage} from './components/pages/Admin';
 import {CartPage} from './components/pages/Cart';
 import {ShopPage} from './components/pages/Shop';
+import {ProductManagement} from "./components/molecules/ProductManagement";
 
 const router = [
   {
@@ -23,11 +24,7 @@ const router = [
     sub: [
       {
         path: '/admin/products',
-        component: (
-          <div>
-            Products
-          </div>
-        ),
+        component: <ProductManagement/>,
       },
       {
         path: '/admin/orders',

@@ -1,0 +1,13 @@
+.cart-wrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  & > div:first-child {
+    margin: 0;
+    width: 65%;
+  }
+  & > div:last-child {
+    margin: 0;
+    width: 33%;
+  }
+}

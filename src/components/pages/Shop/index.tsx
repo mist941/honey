@@ -1,7 +1,7 @@
 import React from 'react';
 import {PageTemplate} from '../../templates/PageTemplate';
 import styles from './style.module.scss';
-import {productList} from "./helper";
+import {productList} from "../../../helpers/helper";
 
 export const ShopPage = () => {
   return (

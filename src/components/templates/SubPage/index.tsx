@@ -12,9 +12,11 @@ export const SubPage = ({children, title, action, actionName}: PropsWithChildren
     <div className={styles['subpage-wrapper']}>
       <div className={styles['header']}>
         <h2 className={styles['title']}>{title}</h2>
-        <button className={styles['action']} onClick={action}>
-          {actionName}
-        </button>
+        {action && (
+          <button className={styles['action']} onClick={action}>
+            {actionName}
+          </button>
+        )}
       </div>
 
       {children}

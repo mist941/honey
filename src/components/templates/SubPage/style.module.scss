@@ -1,7 +1,17 @@
-.template-page-wrapper {
-  
-  .title {
-    font-family: 'Barlow', sans-serif;
+.subpage-wrapper {
+  margin: 0 25px;
+  width: 77%;
+  background: #1F1D2B;
+  border-radius: 8px;
+  padding: 34px 25px;
 
+  .header {
+    margin-bottom: 30px;
+
+    .title {
+      font-family: 'Barlow', sans-serif;
+      color: #FFF;
+      font-weight: 600;
+    }
   }
 }
