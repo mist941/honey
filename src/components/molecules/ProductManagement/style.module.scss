@@ -28,16 +28,23 @@
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+    height: fit-content;
 
-    & > img {
+    & > .img-wrap {
       width: 250px;
+      height: 250px;
       margin-bottom: 20px;
+      overflow: hidden;
+
+      & > img {
+        width: 100%;
+        height: 100%;
+      }
     }
 
     .product-name, .product-info {
       font-weight: 500;
       font-size: 16px;
-
       font-family: "Barlow", sans-serif;
       margin-bottom: 12px;
     }

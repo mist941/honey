@@ -1,4 +1,4 @@
-import {SelectedProducts} from "../types/Products";
+import {Product} from "../types/Products";
 
 export const productList = [
   {
@@ -66,24 +66,24 @@ export const productList = [
   }
 ];
 
-export const selectedProducts: SelectedProducts[] = [
+export const selectedProducts: Product[] = [
   {
     id: 1,
-    miniImage: 'src/assets/image/product-image.png',
+    image: 'src/assets/image/product-image.png',
     name: 'bzz',
     cost: 23,
     amount: 3,
   },
   {
     id: 2,
-    miniImage: 'src/assets/image/product-image.png',
+    image: 'src/assets/image/product-image.png',
     name: 'bzzcc',
     cost: 33,
     amount: 21,
   },
   {
     id: 3,
-    miniImage: 'src/assets/image/product-image.png',
+    image: 'src/assets/image/product-image.png',
     name: 'bzzbb',
     cost: 122,
     amount: 22,

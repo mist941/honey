@@ -11,7 +11,7 @@ export default function App() {
     <BaseLayout router={
       <Switch>
         {router.map((rout, index) => (
-          <Route key={index} path={rout.path} exact={rout.path === '/'}>
+          <Route key={index} path={rout.path} exact={rout.path === '/shop'}>
             {rout.component}
           </Route>
         ))}

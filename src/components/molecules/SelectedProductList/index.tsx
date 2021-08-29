@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './style.module.scss';
 import {SubPage} from "../../templates/SubPage";
-import {SelectedProducts} from "../../../types/Products";
+import {Product} from "../../../types/Products";
 import {BiTrash} from "react-icons/all";
 
 interface Props {
-  productList: SelectedProducts[],
+  productList: Product[],
 }
 
 export const SelectedProductList = ({productList}: Props) => {

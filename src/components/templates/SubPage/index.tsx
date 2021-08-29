@@ -18,7 +18,6 @@ export const SubPage = ({children, title, action, actionName}: PropsWithChildren
           </button>
         )}
       </div>
-
       {children}
     </div>
   );

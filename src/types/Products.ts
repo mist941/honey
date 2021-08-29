@@ -1,7 +1,8 @@
-export interface SelectedProducts {
-  id: number,
-  miniImage: string,
+export interface Product {
+  id?: string,
+  image: string,
   name: string,
-  cost: number,
-  amount: number,
+  cost: string,
+  amount: string,
+  description?: string,
 }

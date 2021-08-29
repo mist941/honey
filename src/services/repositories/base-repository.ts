@@ -1,12 +1,13 @@
 // @ts-ignore
-import { FieldPath, QuerySnapshot, WhereFilterOp }  from "firebase/app";
+import {FieldPath, QuerySnapshot, WhereFilterOp} from "firebase/app";
 import firebase from "firebase/app";
 import {BaseModel} from "./models/base-model";
+import Firestore = firebase.firestore.Firestore;
 
 export abstract class FirestoreBaseRepository {
 
   protected NODE: string = '';
-  protected db: firebase.firestore.Firestore;
+  protected db: Firestore;
 
   protected abstract setNode(): string;
 
@@ -15,47 +16,54 @@ export abstract class FirestoreBaseRepository {
     this.db = this.getDatabase();
   }
 
-  getDatabase(): firebase.firestore.Firestore {
+  getDatabase(): Firestore {
     return firebase.firestore();
   }
 
   getCollection() {
     return this
       .db
-      .collection(this.NODE)
+      .collection(this.NODE);
   }
 
-  create(entity: BaseModel) {
+  create(entity: any) {
     return this
       .getCollection()
-      .add(entity)
+      .add(entity);
   }
 
-  get(id: string): Promise<QuerySnapshot<BaseModel>>{
+  get(id: string): Promise<QuerySnapshot<BaseModel>> {
     return this
       .getCollection()
       .doc(id)
-      .get()
-  }
-
-  getWhere(field: string | FieldPath, condition: WhereFilterOp, value: any): Promise<QuerySnapshot<BaseModel>> {
-    return this
-      .getCollection()
-      .where(field, condition, value)
-      .get()
-  }
-
-  findAll() {
-    return this
-      .getCollection()
-      .get()
+      .get();
   }
 
   update(id: string, params: any) {
     return this
       .getCollection()
       .doc(id)
-      .update(params)
+      .update(params);
+  }
+
+  delete(id?: string) {
+    return this
+      .getCollection()
+      .doc(id)
+      .delete();
+  }
+
+  getWhere(field: string | FieldPath, condition: WhereFilterOp, value: any): Promise<QuerySnapshot<BaseModel>> {
+    return this
+      .getCollection()
+      .where(field, condition, value)
+      .get();
+  }
+
+  findAll() {
+    return this
+      .getCollection()
+      .get();
   }
 
   upsert(entity: BaseModel) {

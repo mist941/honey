@@ -1,10 +1,10 @@
 import {BaseDataService} from "./base-data.service";
-import {ItemRepository} from "../repositories/item.repository";
+import {ProductRepository} from "../repositories/item.repository";
 
 export class ItemService extends BaseDataService {
 
   constructor() {
-    super(new ItemRepository());
+    super(new ProductRepository());
   }
 
 }
