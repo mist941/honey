@@ -45,7 +45,19 @@
       }
 
       .amount {
-        color: #fff;
+        display: flex;
+        align-content: center;
+
+        .value {
+          color: #fff;
+          margin: 0 10px;
+        }
+
+        .control {
+          color: rgb(234, 124, 105);
+          font-weight: bold;
+          cursor: pointer;
+        }
       }
     }
 

@@ -8,6 +8,7 @@ interface Props {
   name: string,
   onClose: () => void,
   children: React.ReactNode,
+  size?: number,
 }
 
 export const PopUp: FC<Props> = (
@@ -16,6 +17,7 @@ export const PopUp: FC<Props> = (
     onClose,
     name,
     children,
+    size,
   }
 ) => {
 
@@ -42,7 +44,7 @@ export const PopUp: FC<Props> = (
       onRequestClose={onClose}
       style={customStyles}
     >
-      <div className={styles['modal']}>
+      <div className={styles['modal']} style={size ? {width: size} : {}}>
         <div className={styles['header']}>
           <p className={styles['title']}>{name}</p>
           <button className={styles['close-btn']} onClick={onClose}>

@@ -22,6 +22,24 @@
 
 .link-wrapper {
   height: fit-content;
+  position: relative;
+
+  .cart-count {
+    display: none;
+  }
+
+  &_active {
+    .cart-count {
+      font-family: "Barlow", sans-serif;
+      display: block;
+      position: absolute;
+      z-index: 999;
+      left: 47px;
+      top: 3px;
+      color: #EA7C69;
+      font-weight: bold;
+    }
+  }
 }
 
 .logout {
@@ -33,6 +51,7 @@
   display: grid;
   place-items: center;
   outline: none;
+
   & > svg {
     width: 60%;
     height: 60%;

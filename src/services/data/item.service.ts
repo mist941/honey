@@ -1,5 +1,5 @@
 import {BaseDataService} from "./base-data.service";
-import {ProductRepository} from "../repositories/item.repository";
+import {ProductRepository} from "../repositories/product.repository";
 
 export class ItemService extends BaseDataService {
 

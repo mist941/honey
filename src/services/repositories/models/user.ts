@@ -1,16 +1,10 @@
 import {Statuses} from "../../status.service";
 import {BaseModel} from "./base-model";
 
-export interface User extends BaseModel {
+export interface User {
   name: string;
-  lastname: string;
   email: string;
-  provider: RegisteredTypes;
   uid: string;
-  orders: Order[];
-  addresses: Address[];
-  createDate: Date;
-  updateDate: Date;
 }
 
 export enum RegisteredTypes {

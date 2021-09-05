@@ -1,9 +1,13 @@
-import React, { useState} from 'react';
+import React, {useState} from 'react';
 import {AiFillFacebook, AiFillGoogleCircle} from 'react-icons/ai';
 import {BiUserCircle} from 'react-icons/bi';
 import {useDispatch} from 'react-redux';
 import {signup} from '../../../../store/auth';
 import styles from '../style.module.scss';
+import {AuthProviders} from "../../../../services/auth/auth.providers";
+import {AsyncService} from "../../../../store/asyncActions/inedx";
+import {ActionsGroup} from "../../../../store/asyncActions/types";
+import {useHistory} from "react-router-dom";
 
 interface RegisterFormProps {
   changePage: () => void;
@@ -11,11 +15,14 @@ interface RegisterFormProps {
 
 export const RegisterForm = ({changePage}: RegisterFormProps) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const service = new AsyncService(dispatch).asyncActionStrategy(ActionsGroup.auth);
 
   const submit = () => {
-    dispatch(signup({email, password}));
+    service.registerAction(email, password);
+    history.push("/shop");
   };
 
   return (
