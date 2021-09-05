@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {User} from '../services/repositories/models/user';
+import {RegisteredTypes, User} from '../services/repositories/models/user';
 
 interface State {
   currentUser: User | null;
@@ -12,13 +12,21 @@ export const authSlice = createSlice({
   },
   reducers: {
     signup: (state, action) => {
-
+      state.currentUser = {
+        name: action.payload.email,
+        email: action.payload.email,
+        uid: action.payload.uid,
+      };
     },
     login: (state, action) => {
-      state.currentUser = action.payload;
+      state.currentUser = {
+        name: action.payload.email,
+        email: action.payload.email,
+        uid: action.payload.uid,
+      };
     },
     logout: (state) => {
-
+      state.currentUser = null;
     },
   },
 });

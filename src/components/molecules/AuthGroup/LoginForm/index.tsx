@@ -5,7 +5,7 @@ import styles from '../style.module.scss';
 import {AsyncService} from "../../../../store/asyncActions/inedx";
 import {ActionsGroup} from "../../../../store/asyncActions/types";
 import {AuthProviders} from "../../../../services/auth/auth.providers";
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
 interface LoginFormProps {
   changePage: () => void;
@@ -13,11 +13,13 @@ interface LoginFormProps {
 
 export const LoginForm = ({changePage}: LoginFormProps) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const service = new AsyncService(dispatch).asyncActionStrategy(ActionsGroup.auth);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const submit = () => {
-    service.loginAction({email, password}, AuthProviders.EMAIL)
+    service.loginAction({email, password}, AuthProviders.EMAIL);
+    if (email === 'administrator@honey.com') history.push('/admin');
   };
 
   return (

@@ -3,10 +3,15 @@ import {PageTemplate} from '../../templates/PageTemplate';
 import styles from './style.module.scss';
 import {Product} from "../../../types/Products";
 import {ProductRepository} from "../../../services/repositories/product.repository";
+import {PopUp} from "../../molecules/Modal";
+import {ProductForm} from "../../molecules/ProductForm";
+import {ProductModal} from "../../molecules/ProductModal";
 
 export const ShopPage = () => {
   const productRepository = new ProductRepository();
   const [list, setList] = useState<Product[]>([]);
+  const [currentProduct, setCurrentProduct] = useState<Product | null>(null);
+  const [popUp, setPopUp] = useState<boolean>(false);
 
   useEffect(() => {
     productRepository.getCollection().get().then(res => {
@@ -23,7 +28,10 @@ export const ShopPage = () => {
       <div className={styles['product-list']}>
         {
           list.map(product => (
-            <div className={styles['product']} key={product.id}>
+            <div className={styles['product']} key={product.id} onClick={() => {
+              setPopUp(true);
+              setCurrentProduct(product);
+            }}>
               <div className={styles['img-wrapper']}>
                 <img src={product.image} alt=""/>
               </div>
@@ -38,6 +46,18 @@ export const ShopPage = () => {
               </div>
             </div>
           ))
+        }
+        {
+          (popUp&& currentProduct!==null) && (
+            <PopUp
+              isOpen={popUp}
+              onClose={() => setPopUp(false)}
+              name="Просмотр продукта"
+              size={600}
+            >
+             <ProductModal product={currentProduct}/>
+            </PopUp>
+          )
         }
       </div>
     </PageTemplate>

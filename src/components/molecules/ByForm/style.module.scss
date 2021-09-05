@@ -1,0 +1,36 @@
+.field-wrapper {
+  margin-bottom: 20px;
+
+  p {
+    color: #E0E6E9;
+    font-family: "Barlow", sans-serif;
+    margin-bottom: 3px;
+  }
+
+  .field {
+    border: 1px solid #393C49;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: #2D303E;
+    height: 40px;
+    padding: 14px;
+    font-size: 14px;
+    line-height: 140%;
+    color: #E0E6E9;
+    font-family: "Barlow", sans-serif;
+    outline: none;
+    width: 100%;
+  }
+}
+
+.all-sum {
+  font-family: "Barlow", sans-serif;
+  color: #E0E6E9;
+  font-size: 18px;
+  margin-bottom: 35px;
+
+  & > span {
+    color: goldenrod;
+    font-weight: bold;
+  }
+}
