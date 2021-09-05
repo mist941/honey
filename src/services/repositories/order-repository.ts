@@ -9,5 +9,4 @@ export class OrderRepository extends UserRepository {
   constructor() {
     super();
   }
-
 }
