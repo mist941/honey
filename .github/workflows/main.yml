@@ -16,6 +16,16 @@ jobs:
       - name: Install dependencies
         run: npm i
       - name: Build dependencies
+        run: rm -rf node_modules
+      - name: Build dependencies
+        run: yarn cache clean
+      - name: Build dependencies
+        run: yarn
+      - name: Build dependencies
+        run: yarn upgrade
+      - name: Build dependencies
+        run: yarn add yarn
+      - name: Build dependencies
         run: yarn build
       - name: Archive production artifact
         uses: actions/upload-artifact@main

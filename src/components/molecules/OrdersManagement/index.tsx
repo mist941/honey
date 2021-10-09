@@ -3,7 +3,6 @@ import styles from './style.module.scss';
 import {SubPage} from "../../templates/SubPage";
 import {OrderRepository} from "../../../services/repositories/order-repository";
 
-
 export const OrdersManagement = () => {
   const ordersRepository = new OrderRepository();
   const [list, setList] = useState<any[]>([]);
