@@ -27,12 +27,13 @@ export const orderSlice = createSlice({
         return order;
       })
     },
-    clearCart: (state, action) => {
+    clearCart: (state) => {
+      console.log("hello")
       state.orders = [];
     },
   },
 });
 
-export const {addProduct, removeProduct, changeProduct} = orderSlice.actions;
+export const {addProduct, removeProduct, changeProduct, clearCart} = orderSlice.actions;
 
 export default orderSlice.reducer;
