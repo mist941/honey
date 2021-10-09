@@ -4,6 +4,7 @@ import {AdminPage} from './components/pages/Admin';
 import {CartPage} from './components/pages/Cart';
 import {ShopPage} from './components/pages/Shop';
 import {ProductManagement} from "./components/molecules/ProductManagement";
+import {OrdersManagement} from "./components/molecules/OrdersManagement";
 
 const router = [
   {
@@ -28,11 +29,7 @@ const router = [
       },
       {
         path: '/admin/orders',
-        component: (
-          <div>
-            Orders
-          </div>
-        ),
+        component: <OrdersManagement/>,
       },
     ],
   },

@@ -11,10 +11,11 @@ import {RootState} from "../../../store/store";
 import classNames from "classnames";
 import {AsyncService} from "../../../store/asyncActions/inedx";
 import {ActionsGroup} from "../../../store/asyncActions/types";
+import {useLocation} from "react-router-dom";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
-  const [activeRout, setActiveRoute] = useState<string>(UrlHelper.getCurrentRout);
+  let location = useLocation();
   const user = useSelector((state: RootState) => state.auth.currentUser);
   const cartCount = useSelector((state: RootState) => state.cart.orders).length;
   const service = new AsyncService(dispatch).asyncActionStrategy(ActionsGroup.auth);
@@ -26,37 +27,37 @@ export const Navbar = () => {
 
   return (
     <div className={styles['navbar-wrapper']}>
-        <span className={styles['link-wrapper']} onClick={() => setActiveRoute('')}>
+        <span className={styles['link-wrapper']}>
           <CustomLink isOriginalLink={true} preset="gradient" to="https://honey-landing-84128.web.app/">
             <AiOutlineHome/>
           </CustomLink>
         </span>
       <nav className={styles['navigation']}>
-        <span className={styles['link-wrapper']} onClick={() => setActiveRoute('shop')}>
+        <span className={styles['link-wrapper']}>
           <CustomLink
             preset="nav"
             to="/shop"
-            isActive={activeRout === 'shop'}>
+            isActive={location.pathname === '/shop'}>
             <AiOutlineShop/>
           </CustomLink>
         </span>
-        <span className={finalClassNameCart} onClick={() => setActiveRoute('cart')}>
+        <span className={finalClassNameCart}>
           <span className={styles['cart-count']}>
             {cartCount}
           </span>
           <CustomLink
             preset="nav"
             to="/cart"
-            isActive={activeRout === 'cart'}>
+            isActive={location.pathname === '/cart'}>
             <BiBasket/>
           </CustomLink>
         </span>
         {(user?.email === 'administrator@honey.com') && (
-          <span className={styles['link-wrapper']} onClick={() => setActiveRoute('admin')}>
+          <span className={styles['link-wrapper']}>
             <CustomLink
               preset="nav"
               to="/admin/products"
-              isActive={activeRout === 'admin'}>
+              isActive={location.pathname === '/admin'}>
             <RiAdminFill/>
           </CustomLink>
         </span>
