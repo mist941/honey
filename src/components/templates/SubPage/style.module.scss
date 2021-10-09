@@ -1,0 +1,38 @@
+.subpage-wrapper {
+  margin: 0 25px;
+  width: 77%;
+  background: #1F1D2B;
+  border-radius: 8px;
+  padding: 34px 25px;
+
+  .header {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+      font-family: 'Barlow', sans-serif;
+      color: #FFF;
+      font-weight: 600;
+    }
+
+    .action {
+      font-family: "Barlow", sans-serif;
+      background: #EA7C69;
+      box-shadow: 0 8px 24px rgb(234 124 105 / 32%);
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      color: #fff;
+      font-weight: 500;
+      border-radius: 3px;
+      transition: .2s linear;
+
+      &:hover {
+        transition: .2s linear;
+        opacity: .8;
+      }
+    }
+  }
+}

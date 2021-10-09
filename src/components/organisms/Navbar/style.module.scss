@@ -1,0 +1,68 @@
+.navbar-wrapper {
+  display: grid;
+  align-content: space-between;
+  position: relative;
+  background: #1F1D2B;
+  border-radius: 0 16px 16px 0;
+  padding: 20px;
+  height: 100vh;
+}
+
+.navigation {
+  display: grid;
+  height: 290px;
+
+  .active-background {
+    position: absolute;
+    width: 100px;
+    right: -1px;
+    top: 333px;
+  }
+}
+
+.link-wrapper {
+  height: fit-content;
+  position: relative;
+
+  .cart-count {
+    display: none;
+  }
+
+  &_active {
+    .cart-count {
+      font-family: "Barlow", sans-serif;
+      display: block;
+      position: absolute;
+      z-index: 999;
+      left: 47px;
+      top: 3px;
+      color: #EA7C69;
+      font-weight: bold;
+    }
+  }
+}
+
+.logout {
+  background: none;
+  border: none;
+  width: 100%;
+  height: 65px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  outline: none;
+
+  & > svg {
+    width: 60%;
+    height: 60%;
+    color: #EA7C69;
+    transition: .2s linear;
+  }
+
+  &:hover {
+    svg {
+      transition: .2s linear;
+      color: #fff;
+    }
+  }
+}

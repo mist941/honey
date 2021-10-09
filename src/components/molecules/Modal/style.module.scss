@@ -1,0 +1,33 @@
+.modal {
+  background-color: #1F1D2B;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  border: none;
+  outline: none;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .title {
+      font-weight: 500;
+      font-size: 18px;
+      font-family: "Barlow", sans-serif;
+      color: #fff;
+    }
+
+    .close-btn {
+      border: none;
+      padding: 0;
+      background: transparent;
+
+      & > svg {
+        color: #EA7C69;
+        cursor: pointer;
+      }
+    }
+  }
+}

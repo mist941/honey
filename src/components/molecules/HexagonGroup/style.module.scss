@@ -1,0 +1,30 @@
+.hexagon-group {
+  > div {
+    position: absolute;
+
+    &:nth-child(1) {
+      top: 0;
+      right: 0;
+    }
+
+    &:nth-child(2) {
+      top: 634px;
+      right: 324px;
+    }
+
+    &:nth-child(3) {
+      top: 34px;
+      left: 0;
+    }
+
+    &:nth-child(4) {
+      top: 511px;
+      left: 50px;
+    }
+
+    &:nth-child(5) {
+      top: 348px;
+      right: 0;
+    }
+  }
+}

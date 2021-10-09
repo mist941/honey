@@ -1,0 +1,108 @@
+.link {
+  width: 100%;
+  height: 65px;
+  display: grid;
+  z-index: 1;
+  place-items: center;
+  border-radius: 8px;
+
+  svg {
+    width: 60%;
+    height: 60%;
+    color: #EA7C69;
+    transition: .2s linear;
+  }
+
+  &:hover {
+    svg {
+      transition: .2s linear;
+      color: #fff;
+    }
+  }
+
+  &_active {
+    position: relative;
+
+    svg {
+      color: #fff;
+      animation: animation_link_icon .5s;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      background: #EA7C69;
+      z-index: -1;
+      box-shadow: 0 8px 24px rgba(234, 124, 105, 0.32);
+      border-radius: 8px;
+      width: 100%;
+      height: 100%;
+      animation: animation_link_background .5s;
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      border-radius: 12px 0 0 12px;
+      background: #252836;
+      z-index: -1;
+      right: -20px;
+      width: 96px;
+      height: 91px;
+      animation: animation_link_wrapper .3s;
+    }
+  }
+}
+
+.link_gradient {
+  background: rgba(235, 150, 106, .26);
+  border-radius: 12px;
+  transition: .2s linear;
+
+  svg {
+    transition: .2s linear;
+    color: #EA7C69;
+  }
+
+  &:hover {
+    background: rgba(235, 150, 106, .5);
+    box-shadow: 0 8px 24px rgba(234, 124, 105, 0.32);
+
+    svg {
+      color: #FFF;
+    }
+  }
+}
+
+@keyframes animation_link_wrapper {
+  from {
+    width: 10px;
+    height: 10px;
+  }
+  to {
+    width: 91px;
+    height: 91px;
+  }
+}
+
+@keyframes animation_link_background {
+  from {
+    width: 5%;
+    height: 5%;
+  }
+  to {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes animation_link_icon {
+  from {
+    color: #EA7C69;
+  }
+  to {
+    color: #fff;
+  }
+}
