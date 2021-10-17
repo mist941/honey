@@ -26,15 +26,15 @@ jobs:
       - name: Build dependencies
         run: yarn add yarn
       - name: Build dependencies
-        run: yarn build
+        run: yarn dist
       - name: Archive production artifact
         uses: actions/upload-artifact@main
         with:
-          name: build
-          path: build
+          name: dist
+          path: dist
   deploy:
     name: Deploy
-    needs: build
+    needs: dist
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -42,8 +42,8 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@main
         with:
-          name: build
-          path: build
+          name: dist
+          path: dist
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
