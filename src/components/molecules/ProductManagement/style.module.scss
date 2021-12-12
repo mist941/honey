@@ -86,3 +86,32 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .products-management {
+    height: calc(100vh - 267px);
+    padding: 0 10px;
+    justify-content: center;
+
+    .product {
+      width: auto;
+
+      & > .img-wrap {
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: auto;
+        }
+      }
+
+      .btn-group {
+        & > .btn {
+          padding: 7px;
+        }
+      }
+    }
+  }
+}

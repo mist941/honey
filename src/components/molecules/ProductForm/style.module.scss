@@ -60,3 +60,31 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .product-from {
+    .field-wrapper {
+      margin-bottom: 10px;
+
+      p {
+        font-size: 16px;
+      }
+
+      .field {
+        height: 30px;
+      }
+    }
+
+    .image-wrap {
+      height: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
+}

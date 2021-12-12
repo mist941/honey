@@ -3,3 +3,10 @@
   grid-template-columns: 105px auto;
   height: 100%;
 }
+
+@media (max-width: 768px) {
+  .template-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}

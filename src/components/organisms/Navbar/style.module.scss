@@ -66,3 +66,18 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .navbar-wrapper {
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .navigation {
+    display: flex;
+    height: auto;
+  }
+}

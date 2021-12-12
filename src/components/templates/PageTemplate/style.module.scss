@@ -12,3 +12,15 @@
     margin-bottom: 30px;
   }
 }
+
+@media (max-width: 768px) {
+  .template-page-wrapper {
+    height: calc(100vh - 85px);
+    padding: 10px;
+
+    .title {
+      font-size: 21px;
+      margin-bottom: 15px;
+    }
+  }
+}

@@ -106,3 +106,24 @@
     color: #fff;
   }
 }
+
+@media (max-width: 768px) {
+  .link {
+    width: 65px;
+    height: 65px;
+
+    &_active {
+      &:after {
+        display: none;
+      }
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+  .link_gradient {
+    width: 65px;
+    height: 65px;
+  }
+}

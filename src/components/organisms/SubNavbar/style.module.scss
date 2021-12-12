@@ -7,3 +7,17 @@
   flex-direction: column;
   overflow: hidden;
 }
+
+@media (max-width: 768px) {
+  .sub-navbar-wrapper {
+    width: 100%;
+    flex-direction: row;
+    height: 35px;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid #fff;
+
+    > span {
+      width: 50%;
+    }
+  }
+}

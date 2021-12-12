@@ -76,3 +76,28 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .products-list {
+    .single-product {
+      padding: 10px;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .img-wrap {
+        display: none;
+      }
+
+      .product-info {
+        justify-content: space-between;
+        margin-right: 15px;
+      }
+    }
+  }
+}

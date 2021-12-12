@@ -2,3 +2,9 @@
   height: 100%;
   display: flex;
 }
+
+@media (max-width: 768px) {
+  .admin-wrapper {
+    flex-direction: column;
+  }
+}

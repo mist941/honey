@@ -31,3 +31,14 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .modal {
+    max-width: 290px;
+    padding: 10px;
+
+    .header {
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -12,3 +12,12 @@
     background: rgba(234, 124, 105, 0.26);
   }
 }
+
+@media (max-width: 768px) {
+  .sub_link {
+    padding: 0;
+    width: 100% !important;
+    text-align: center;
+    height: 100%;
+  }
+}

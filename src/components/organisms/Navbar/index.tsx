@@ -62,15 +62,15 @@ export const Navbar = () => {
         </span>
         )}
       </nav>
-      <div>
-        {
-          user && (
+      {
+        user && (
+          <div>
             <button className={styles['logout']} onClick={() => service.logoutAction()}>
               <FiLogOut/>
             </button>
-          )
-        }
-      </div>
+          </div>
+        )
+      }
     </div>
   );
 };

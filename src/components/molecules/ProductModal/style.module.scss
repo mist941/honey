@@ -29,6 +29,7 @@
   max-width: 90%;
   margin: 0 auto;
   width: 100%;
+
   .img-wrapper {
     width: 100%;
     margin: 0 auto 20px;
@@ -80,6 +81,34 @@
     & > span {
       color: #ABBBC2;
       font-weight: bold;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .product-info {
+    text-align: center;
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+
+    .img-wrapper {
+      height: 200px;
+      max-height: 200px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .values {
+      flex-direction: column;
+      margin-bottom: 5px;
+
+      .cost {
+        margin-bottom: 5px;
+      }
     }
   }
 }

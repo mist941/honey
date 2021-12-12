@@ -2,3 +2,9 @@
   padding: 5% 25%;
   height: 100%;
 }
+
+@media (max-width: 768px) {
+  .template-auth-wrapper {
+    padding: 3%;
+  }
+}

@@ -2,12 +2,32 @@
   display: flex;
   justify-content: space-between;
   height: 100%;
+
   & > div:first-child {
     margin: 0;
     width: 65%;
   }
+
   & > div:last-child {
     margin: 0;
     width: 33%;
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-wrapper {
+    flex-direction: column;
+    overflow-y: scroll;
+    justify-content: unset;
+
+    > div {
+      width: 100% !important;
+      padding: 15px;
+      border-radius: 10px;
+
+      &:first-child {
+        margin-bottom: 15px;
+      }
+    }
   }
 }
