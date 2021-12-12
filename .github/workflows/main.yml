@@ -26,7 +26,7 @@ jobs:
       - name: Build dependencies
         run: yarn add yarn
       - name: Build dependencies
-        run: yarn build
+        run: npm run build
       - name: Archive production artifact
         uses: actions/upload-artifact@main
         with:
