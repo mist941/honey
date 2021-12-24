@@ -27,7 +27,7 @@ export const Navbar = () => {
   return (
     <div className={styles['navbar-wrapper']}>
         <span className={styles['link-wrapper']}>
-          <CustomLink isOriginalLink={true} preset="gradient" to="https://honey-landing-84128.web.app/">
+          <CustomLink isOriginalLink={true} preset="gradient" to="https://honey-landing-84128.web.app">
             <AiOutlineHome/>
           </CustomLink>
         </span>
