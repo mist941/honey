@@ -48,14 +48,14 @@ export const ShopPage = () => {
           ))
         }
         {
-          (popUp&& currentProduct!==null) && (
+          (popUp && currentProduct !== null) && (
             <PopUp
               isOpen={popUp}
               onClose={() => setPopUp(false)}
-              name="Просмотр продукта"
+              name=""
               size={600}
             >
-             <ProductModal product={currentProduct}/>
+              <ProductModal product={currentProduct} onClose={() => setPopUp(false)}/>
             </PopUp>
           )
         }

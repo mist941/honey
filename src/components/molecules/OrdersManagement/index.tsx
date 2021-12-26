@@ -22,8 +22,11 @@ export const OrdersManagement = () => {
   }, []);
 
   const getTotalCount = (id: string) => {
-    return list.find(l => l.id === id).orders.map((o: any) => o.count * o.product.cost).reduce((p: any, c: any) => p + c);
+    const prepareList = list.find(l => l.id === id)?.orders.map((o: any) => o.count * o.product.cost);
+    if (prepareList.length) return prepareList.reduce((p: any, c: any) => p + c, 0);
+    return 0;
   }
+
   return (
     <SubPage title='Orders Management'>
       <div className={styles['orders-management']}>

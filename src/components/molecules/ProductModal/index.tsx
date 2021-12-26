@@ -6,15 +6,19 @@ import {addProduct} from "../../../store/cart";
 
 interface Props {
   product: Product;
+  onClose: () => void;
 }
 
-export const ProductModal: FC<Props> = ({product}) => {
+export const ProductModal: FC<Props> = ({product, onClose}) => {
   const dispatch = useDispatch();
+  const [count, setCount] = useState<number>(1);
+
   const addProductToCart = () => {
     dispatch(addProduct({
-      count: 1,
+      count,
       product: product,
-    }))
+    }));
+    onClose();
   }
   return (
     <>
@@ -36,7 +40,17 @@ export const ProductModal: FC<Props> = ({product}) => {
         </div>
       </div>
       <div className={styles['btnWrap']}>
-        <button className={styles['btn']} onClick={() => addProductToCart()}>Купить</button>
+        <p className={styles['amount']}>
+          <span className={styles['control']} onClick={() => setCount(count > 1 ? count - 1 : 1)}>
+            -
+          </span>
+          <span className={styles['value']}>{count}</span>
+          <span className={styles['control']}
+                onClick={() => setCount(count < Number(product.amount) ? count + 1 : Number(product.amount))}>
+            +
+          </span>
+        </p>
+        <button className={styles['btn']} onClick={() => addProductToCart()}>Добавить в корзину</button>
       </div>
     </>
   );

@@ -14,10 +14,10 @@ interface Props {
 
 export const ByForm = ({orderList}: Props) => {
   const orderRepository = new OrderRepository();
-
   const [name, setName] = useState<string>('');
   const [phoneNumber, setPhoneNumber] = useState<string>('');
   const [isOpenPopUp, setOpenPop] = useState(false);
+
   let history = useHistory();
   const dispatch = useDispatch();
 
@@ -30,7 +30,7 @@ export const ByForm = ({orderList}: Props) => {
   }
 
   const addOrder = () => {
-    if (name !== "" && phoneNumber !== "") {
+    if (name !== "" && phoneNumber !== "" && orderList.length) {
       orderRepository.create({name, phoneNumber, orders: orderList}).then(() => {
         setOpenPop(true);
       });
